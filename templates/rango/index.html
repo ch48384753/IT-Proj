@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+	<head>
+		<title>Rango</title>
+	</head>
+
+	<>
+		<h1>Rango says...</h1>
+		<div>hey there partner!</div>
+		<div>
+			<div>
+				<h3>Most Liked Categories</h3>
+			</div>
+			{% if categories %}
+				<ul>
+					{% for category in categories %}
+						<li>
+							<a href="/rango/category/{{ category.slug }}">{{ category.name }}</a>
+						</li>
+					{% endfor %}
+				</ul>
+			{% else %}
+				<strong>There are no categories present.</strong>
+			{% endif %}
+		</div>
+
+		<div>
+			<div>
+				<h3>Most Viewed Pages</h3>
+			</div>
+			{% if pages %}
+				<ul>
+					{% for page in pages %}
+						<li>
+							<a href="{{ page.url }}">{{ page.title }}</a>
+						</li>
+					{% endfor %}
+				</ul>
+			{% else %}
+				<strong>There are no categories present</strong>
+			{% endif %}
+		</div>
+
+		<div>
+			Rango says hey there partner! <br/>
+			<a href='/rango/about/'>About</a><br />
+			<a href='/rango/category/add_page/'>Add a New Category</a>
+			<img src="{% static "images/rango.jpg" %}" alt="Picture of Rango" /><br />
+			<img src="{{MEDIA_URL}}cat.jpg" alt="A Cat">
+		</div>
+
+
+	</body>
+</html>
